@@ -1,74 +1,218 @@
-# Automessage Privacy Policy
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automessage Privacy Policy</title>
+    <meta
+      name="description"
+      content="Privacy policy for Automessage, a Chrome extension that generates AI reply suggestions for Gmail."
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #172033;
+        --muted: #5f6b7a;
+        --border: #dbe3ef;
+        --accent: #2563eb;
+      }
 
-Effective date: May 1, 2026
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0f172a;
+          --card: #111c31;
+          --text: #e5edf8;
+          --muted: #9fb0c6;
+          --border: #24344d;
+          --accent: #7aa2ff;
+        }
+      }
 
-Automessage is a Chrome extension that provides AI-generated draft reply suggestions for Gmail threads. This policy explains what information the extension processes and how that information is used.
+      * {
+        box-sizing: border-box;
+      }
 
-## Data Handled
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
 
-Automessage processes email content only when you use the extension on an open Gmail thread. To generate reply suggestions, the extension may parse:
+      main {
+        width: min(880px, calc(100% - 32px));
+        margin: 48px auto;
+        padding: 40px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgb(15 23 42 / 0.08);
+      }
 
-- The email subject.
-- The latest visible message body.
-- The Gmail thread identifier.
-- The sender name and email address, when available in the Gmail page.
-- Your Automessage settings, such as selected AI model and tone.
+      h1,
+      h2 {
+        line-height: 1.2;
+      }
 
-This information is used to request AI-generated reply suggestions. The extension does not read unrelated websites, does not read your inbox in bulk, does not access email content outside the active Gmail thread, and does not request broad browsing permissions.
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
 
-## How Data Is Used
+      h2 {
+        margin-top: 32px;
+        font-size: 1.25rem;
+      }
 
-The extension sends the parsed Gmail context and selected settings to the configured Automessage Cloudflare Worker proxy endpoint at `/v1/replies`. The Worker forwards the necessary prompt content to OpenRouter so an AI model can generate reply suggestions.
+      p,
+      li {
+        color: var(--muted);
+      }
 
-Suggestions are inserted into Gmail only when you choose one. Automessage does not send emails automatically.
+      a {
+        color: var(--accent);
+      }
 
-## Local Storage
+      .updated {
+        margin-top: 0;
+        color: var(--muted);
+      }
 
-The extension uses `chrome.storage.local` to store only local preference settings, such as the selected AI model and tone. Reply suggestions may be cached temporarily in extension memory for performance and are not permanently stored by the extension.
+      @media (max-width: 640px) {
+        main {
+          margin: 16px auto;
+          padding: 24px;
+          border-radius: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Automessage Privacy Policy</h1>
+      <p class="updated">Effective date: May 1, 2026</p>
 
-The code in this repository does not store email content, sender details, generated replies, analytics identifiers, or telemetry events in extension storage.
+      <p>
+        Automessage is a Chrome extension that provides AI-generated draft reply
+        suggestions for Gmail threads. This policy explains what information the
+        extension processes and how that information is used.
+      </p>
 
-## Sharing
+      <h2>Information Automessage Processes</h2>
+      <p>
+        Automessage processes email content only when you use the extension on
+        an open Gmail thread. To generate reply suggestions, the extension may
+        parse the email subject, latest visible message body, Gmail thread
+        identifier, sender name and email address when available, and your
+        Automessage settings such as selected AI model and tone.
+      </p>
 
-Email context needed to generate suggestions is shared with:
+      <h2>How Information Is Used</h2>
+      <p>
+        This information is used only to request AI-generated reply suggestions.
+        Automessage reads the user-visible Gmail page in the browser; it does
+        not use the Gmail API, request Gmail OAuth access, read unrelated
+        websites, read your inbox in bulk, access email content outside the
+        active Gmail thread, or request broad browsing permissions.
+      </p>
 
-- The Cloudflare Worker proxy configured for this extension.
-- OpenRouter, which routes the request to the selected AI model provider.
+      <h2>Information Shared With Services</h2>
+      <p>
+        Automessage sends the parsed Gmail context and selected settings to the
+        configured Automessage Cloudflare Worker proxy endpoint at
+        <code>/v1/replies</code>. The Worker forwards the necessary prompt
+        content to OpenRouter so an AI model can generate reply suggestions.
+      </p>
+      <p>
+        Email context needed to generate suggestions is shared with the
+        Cloudflare Worker proxy configured for this extension and with
+        OpenRouter, which routes the request to the selected AI model provider.
+        Cloudflare, OpenRouter, and the selected model provider may process
+        connection metadata, such as IP address and request timing, as part of
+        operating their services. The Worker source uses the connecting IP
+        address only for rate limiting.
+      </p>
 
-No analytics or telemetry sharing is present in the code in this repository.
+      <h2>Local Storage</h2>
+      <p>
+        Automessage stores only extension settings locally in Chrome, such as
+        selected AI model and tone preference. Reply suggestions may be cached
+        temporarily in extension memory for performance and are not permanently
+        stored by the extension. The extension code does not store email
+        content, sender details, generated replies, analytics identifiers, or
+        telemetry events in extension storage.
+      </p>
 
-## Analytics And Tracking
+      <h2>Analytics And Tracking</h2>
+      <p>
+        Automessage does not include analytics, advertising trackers, telemetry,
+        or behavior tracking.
+      </p>
 
-Automessage does not include analytics, advertising trackers, telemetry, or behavior tracking.
+      <h2>Data Sale Or Transfer</h2>
+      <p>
+        Automessage does not sell, rent, or share personal data for advertising
+        or unrelated purposes.
+      </p>
 
-## Data Sale Or Transfer
+      <h2>Security</h2>
+      <p>
+        Automessage uses HTTPS for network requests. The OpenRouter API key is
+        stored only in the Cloudflare Worker environment and is not included in
+        the Chrome extension.
+      </p>
+      <p>
+        The extension bundle does include the configured Worker URL and a shared
+        proxy authentication token used to call the Worker. That shared token is
+        not an OpenRouter API key. If the token needs to be rotated, the Worker
+        secret must be updated and the extension must be rebuilt with the new
+        token.
+      </p>
 
-Automessage does not sell, rent, or share personal data for advertising or unrelated purposes.
+      <h2>Retention</h2>
+      <p>
+        The extension code does not persist email content. The Worker source does
+        not intentionally store email content or generated replies. Email content
+        passes through the Cloudflare Worker proxy and OpenRouter in transit.
+        Actual logging and retention for the deployed Cloudflare Worker,
+        Cloudflare account, OpenRouter account, and selected model provider must
+        be confirmed by the operator of the deployed service.
+      </p>
 
-## Retention
+      <h2>Chrome Web Store Limited Use Statement</h2>
+      <p>
+        Automessage's use and transfer of information received from Chrome
+        extension APIs and user-visible Gmail page content is limited to
+        providing and improving the user-facing reply suggestion feature.
+        Automessage does not use this information for advertising, does not sell
+        this information, and does not use it to determine creditworthiness or
+        for unrelated purposes.
+      </p>
+      <p>
+        Automessage does not currently use Google API Services or Gmail API OAuth
+        scopes. If that changes, use of information received from Google APIs
+        will adhere to the Chrome Web Store User Data Policy, including the
+        Limited Use requirements.
+      </p>
 
-The extension code does not persist email content. The Worker source in this repository does not intentionally store email content or generated replies. Email content passes through the Cloudflare Worker proxy in transit.
+      <h2>Your Choices</h2>
+      <p>
+        You can stop all extension processing by disabling or uninstalling
+        Automessage. You can also clear locally stored extension settings by
+        removing the extension from Chrome.
+      </p>
 
-Actual logging and retention for the deployed Cloudflare Worker, Cloudflare account, OpenRouter account, and selected model provider must be confirmed by the operator of the deployed service. OpenRouter and its model providers may process submitted content according to their own policies.
-
-## Security
-
-The OpenRouter API key is intended to be stored only as a Cloudflare Worker secret. It is not included in the Chrome extension bundle.
-
-Requests to the proxy use HTTPS. The extension is scoped to `https://mail.google.com/*` for Gmail page access and to the configured Automessage Worker host for reply generation.
-
-## User Controls
-
-You control when suggestions are used. Automessage only drafts suggestions and inserts selected text into the Gmail composer for review; you decide whether to edit or send the email.
-
-You can change model and tone settings from the extension UI. You can stop extension processing by disabling or uninstalling Automessage. You can remove locally stored extension settings by uninstalling the extension or clearing the extension's local storage in Chrome.
-
-## Chrome Web Store Limited Use Statement
-
-Automessage's use and transfer of information received from Google APIs, Chrome extension APIs, and Gmail page content is limited to providing and improving the user-facing reply suggestion feature. Automessage does not use this information for advertising, does not sell this information, and does not use it to determine creditworthiness or for unrelated purposes.
-
-The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.
-
-## Contact
-
-For privacy questions or deletion requests, use the support contact listed on the Chrome Web Store listing or contact the developer through the GitHub profile at https://github.com/epaultex-svg.
+      <h2>Contact</h2>
+      <p>
+        For privacy questions or deletion requests, contact the developer
+        through the Automessage Chrome Web Store listing or GitHub profile:
+        <a href="https://github.com/epaultex-svg">github.com/epaultex-svg</a>.
+      </p>
+    </main>
+  </body>
+</html>
